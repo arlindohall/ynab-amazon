@@ -2,15 +2,15 @@
 # typed: true
 
 class Reader
-  def self.strip_headers(fs)
+  def self.strip_headers(files)
     CSV.parse(
-      fs.map { |file| new(file).strip_header }.join("\n")
+      files.map { |file| new(file).strip_header }.join("\n").gsub("\n\n", "\n")
     )
   end
 
-  def self.no_headers(fs)
+  def self.no_headers(files)
     CSV.parse(
-      fs.map { |file| new(file).no_header }.join("\n")
+      files.map { |file| new(file).no_header }.join("\n").gsub("\n\n", "\n")
     )
   end
 

@@ -3,6 +3,7 @@
 
 require 'csv'
 
+require_relative './date_inverter'
 require_relative './reader'
 require_relative './transaction'
 require_relative './transaction_list'
@@ -28,13 +29,8 @@ class Ynab
   def transaction_for(line)
     Transaction.new(
       line[-3],
-      invert_date(line[2])
+      DateInverter.call(line[2])
     )
-  end
-
-  def invert_date(date)
-    month, day, year = date.split('/')
-    [year, month, day].join('-')
   end
 
   def transaction_list

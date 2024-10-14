@@ -27,3 +27,7 @@ You can compare budget to the chase card statement with the below arg. You can u
 ```
 
 If you don't provide a file path, the script assumes `./actual-files`
+
+## Warnings
+
+This script isn't smart enough to deal with split transactions in YNAB. I might do that someday. If you find the script useful and wish it did that, feel free to open a PR.
