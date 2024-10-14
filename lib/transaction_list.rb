@@ -3,12 +3,13 @@
 
 class TransactionList
   attr_reader :transactions
+
   def initialize(transactions)
     @transactions = transactions
   end
 
-  def exclude?(amount)
-    transactions.none? { |transaction| transaction.amount == amount }
+  def count(amount)
+    transactions.count { |transaction| transaction.amount == amount }
   end
 
   def transactions_for(amount)
