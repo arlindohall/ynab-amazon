@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+# typed: true
+
 class Untracked
   def initialize(source_class, budget_class, dir = "./actual-files")
     @source_class = source_class

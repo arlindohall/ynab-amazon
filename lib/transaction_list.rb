@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+# typed: true
+
 class TransactionList
   attr_reader :transactions
   def initialize(transactions)

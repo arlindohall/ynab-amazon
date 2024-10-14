@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+# typed: true
+
 require 'csv'
 
 require_relative './transaction'

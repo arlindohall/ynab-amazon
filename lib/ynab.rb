@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+# typed: true
+
 require 'csv'
 
 require_relative './transaction'
@@ -18,7 +21,7 @@ class Ynab
 
   def transactions
     @csv.map { |line| transaction_for(line) }
-      .reject { |transaction| transaction.amount == '0.00' }
+        .reject { |transaction| transaction.amount == '0.00' }
   end
 
   def transaction_for(line)
@@ -29,8 +32,8 @@ class Ynab
   end
 
   def invert_date(date)
-    month, day, year = date.split("/")
-    [year, month, day].join("-")
+    month, day, year = date.split('/')
+    [year, month, day].join('-')
   end
 
   def transaction_list
