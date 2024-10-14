@@ -12,9 +12,7 @@ class Amazon
 
   def self.find(dir)
     files = Dir.glob("#{dir}/amazon*.csv")
-    contents = files.map { |f| File.read(f) }
-    blob = contents.join("\n").gsub("\n\n", "\n")
-    csv = CSV.parse(blob)
+    csv = Reader.no_headers(files)
     new(csv).transaction_list
   end
 

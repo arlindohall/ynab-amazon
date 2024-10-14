@@ -3,6 +3,7 @@
 
 require 'csv'
 
+require_relative './reader'
 require_relative './transaction'
 require_relative './transaction_list'
 
@@ -11,10 +12,8 @@ class Ynab
 
   def self.find(dir)
     files = Dir.glob("#{dir}/Selected Transactions for*.csv")
-    contents = files.map { |f| File.read(f) }
-    blob = contents.join("\n").gsub("\n\n", "\n")
-    csv = CSV.parse(blob)
-    new(csv[1..]).transaction_list
+    csv = Reader.strip_headers(files)
+    new(csv).transaction_list
   end
 
   def initialize(csv)

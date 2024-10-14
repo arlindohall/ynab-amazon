@@ -16,7 +16,7 @@ class Untracked
       source_name: String
     ).void
   end
-  def initialize(source_class, budget_class, dir = './actual-files', source_name = 'amazon')
+  def initialize(source_class, budget_class, dir, source_name = 'amazon')
     @source_class = source_class
     @budget_class = budget_class
     @dir = dir
