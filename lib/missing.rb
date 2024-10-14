@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# typed: false
+# typed: true
 
 class Missing
   attr_reader :missing_from, :has_extra, :name_of_missing, :name_of_extra

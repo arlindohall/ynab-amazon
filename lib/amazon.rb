@@ -5,8 +5,11 @@ require 'csv'
 
 require_relative './transaction'
 require_relative './transaction_list'
+require_relative './transaction_source'
 
 class Amazon
+  extend TransactionSource
+
   def self.find(dir)
     files = Dir.glob("#{dir}/amazon*.csv")
     contents = files.map { |f| File.read(f) }

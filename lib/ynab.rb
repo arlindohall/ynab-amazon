@@ -7,6 +7,8 @@ require_relative './transaction'
 require_relative './transaction_list'
 
 class Ynab
+  extend TransactionSource
+
   def self.find(dir)
     files = Dir.glob("#{dir}/Selected Transactions for*.csv")
     contents = files.map { |f| File.read(f) }

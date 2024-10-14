@@ -4,8 +4,18 @@
 require_relative './missing'
 
 class Untracked
+  extend T::Sig
+
   attr_reader :source_class, :budget_class, :dir, :source_name
 
+  sig do
+    params(
+      source_class: TransactionSource,
+      budget_class: TransactionSource,
+      dir: String,
+      source_name: String
+    ).void
+  end
   def initialize(source_class, budget_class, dir = './actual-files', source_name = 'amazon')
     @source_class = source_class
     @budget_class = budget_class
