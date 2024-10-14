@@ -9,8 +9,5 @@ require_relative "./lib/untracked_file"
 require_relative "./lib/ynab"
 
 UntrackedFile.write(
-  Untracked.new(
-    Amazon.find,
-    Ynab.find
-  ).report
+  Untracked.new(Amazon, Ynab).report
 )

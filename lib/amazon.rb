@@ -4,8 +4,8 @@ require_relative './transaction'
 require_relative './transaction_list'
 
 class Amazon
-  def self.find
-    files = Dir.glob("amazon*.csv")
+  def self.find(dir)
+    files = Dir.glob("#{dir}/amazon*.csv")
     contents = files.map { |f| File.read(f) }
     blob = contents.join("\n").gsub("\n\n", "\n")
     csv = CSV.parse(blob)

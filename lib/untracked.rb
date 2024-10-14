@@ -1,8 +1,16 @@
 class Untracked
-  attr_reader :source, :budget
-  def initialize(source, budget)
-    @source = source
-    @budget = budget
+  def initialize(source_class, budget_class, dir = "./actual-files")
+    @source_class = source_class
+    @budget_class = budget_class
+    @dir = dir
+  end
+
+  def source
+    @source ||= @source_class.find(@dir)
+  end
+
+  def budget
+    @budget ||= @budget_class.find(@dir)
   end
 
   def report
