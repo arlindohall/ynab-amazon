@@ -31,3 +31,5 @@ If you don't provide a file path, the script assumes `./actual-files`
 ## Warnings
 
 This script isn't smart enough to deal with split transactions in YNAB. I might do that someday. If you find the script useful and wish it did that, feel free to open a PR.
+
+It also doesn't understand refunds, but I think I'll get around to that one soon.
